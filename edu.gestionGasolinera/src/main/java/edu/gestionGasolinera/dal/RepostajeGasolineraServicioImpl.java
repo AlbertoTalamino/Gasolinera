@@ -11,6 +11,6 @@ package edu.gestionGasolinera.dal;
  * IoC para hacer inyección de dependencias.
  * Con la etiqueta persistence context estamos iyectando un EntityManager.
  */
-public class RepostajeGasolineraServicioImpl {
+public class RepostajeGasolineraServicioImpl implements RepostajeGasolineraServicio{
 
 }
