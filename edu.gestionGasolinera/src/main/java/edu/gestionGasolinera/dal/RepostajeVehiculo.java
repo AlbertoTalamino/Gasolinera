@@ -8,6 +8,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,21 +27,31 @@ public class RepostajeVehiculo {
 	//Propiedades
 	@Column(name="md_uuid", nullable=false)
 	String md_uuid;
+	
 	@Column(name="md_fch", nullable=false)
 	@Temporal(TemporalType.DATE) 
 	Date md_fch;
 	@Id
 	@Column(name="id_repostage_vehiculo", nullable=false)
 	int id_repostage_vehiculo;
+	
 	@Column(name="fecha_hora", nullable=false)
 	@Temporal(TemporalType.DATE) 
 	Date fecha_hora;
+	
 	@Column(name="importe", nullable=false)
 	float importe;
+	
 	@Column(name="DNI", nullable=false, columnDefinition="00000000A")
 	String DNI;
+	
 	@Column(name="matrícula", nullable=false, columnDefinition="000AAA")
 	String matrícula;
+	
+	@ManyToOne
+    @JoinColumn(name = "combustible_vehiculo_id")
+	@Column(name="tipo_combustible", nullable=false)
+	String tipo_combustible;
 	
 	//Constructores
 	
@@ -50,20 +62,21 @@ public class RepostajeVehiculo {
 	 * @param id_repostage_vehiculo
 	 * @param fecha_hora
 	 * @param importe
-	 * @param dNI
+	 * @param DNI
 	 * @param matrícula
 	 * @param tipo_combustible
 	 */
 	public RepostajeVehiculo(String md_uuid, Date md_fch, int id_repostage_vehiculo, Date fecha_hora, float importe,
-			String dNI, String matrícula) {
+			String DNI, String matrícula, String tipo_combustible) {
 		super();
 		this.md_uuid = md_uuid;
 		this.md_fch = md_fch;
 		this.id_repostage_vehiculo = id_repostage_vehiculo;
 		this.fecha_hora = fecha_hora;
 		this.importe = importe;
-		DNI = dNI;
+		this.DNI = DNI;
 		this.matrícula = matrícula;
+		this.tipo_combustible = tipo_combustible;
 	}
 
 	/**
@@ -130,7 +143,14 @@ public class RepostajeVehiculo {
 	public void setMatrícula(String matrícula) {
 		this.matrícula = matrícula;
 	}
+	
+	public String getTipo_combustible() {
+		return matrícula;
+	}
 
+	public void setTipo_combustible(String matrícula) {
+		this.matrícula = matrícula;
+	}
 
 
 	//ToString (Metodo que hace legible a la clase)
@@ -138,7 +158,7 @@ public class RepostajeVehiculo {
 	public String toString() {
 		return "RepostajeVehiculo [md_uuid=" + md_uuid + ", md_fch=" + md_fch + ", id_repostage_vehiculo="
 				+ id_repostage_vehiculo + ", fecha_hora=" + fecha_hora + ", importe=" + importe + ", DNI=" + DNI
-				+ ", matrícula=" + matrícula + "]";
+				+ ", matrícula=" + matrícula + ", =tipo_combustible" + tipo_combustible +"]";
 	}
 
 }

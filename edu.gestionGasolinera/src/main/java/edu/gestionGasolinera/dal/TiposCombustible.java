@@ -9,7 +9,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,7 +40,7 @@ public class TiposCombustible {
 	int litros_combustible;
 	   
 	@Column(name = "tipo_combustible", nullable = false)
-	@ManyToMany(mappedBy = "tipo_combustible")	 
+	@OneToMany(mappedBy = "tipo_combustible")	 
 	List<String> tipo_combustible;
 	
 

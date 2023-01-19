@@ -40,7 +40,7 @@ public class RepostajeGasolinera {
 	int litros_combustible;
 	
 	@ManyToOne
-    @JoinColumn(name = "combustible_id")
+    @JoinColumn(name = "combustible_gasolinera_id")
 	@Column(name="tipo_combustible", nullable=false)
 	String tipo_combustible;
 	

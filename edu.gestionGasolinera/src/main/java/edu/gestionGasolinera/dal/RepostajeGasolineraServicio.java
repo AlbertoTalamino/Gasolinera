@@ -22,21 +22,21 @@ public interface RepostajeGasolineraServicio {
 	
 	/**
 	 * Método que inserta un nuevo repostage en base de datos.
-	 * @param repostage
+	 * @param repostaje
 	 */
-	public void insert(RepostajeGasolinera repostage);
+	public void insert(RepostajeGasolinera repostaje);
 	
 	/**
 	 * Método que actualiza un repostage en base de datos.
-	 * @param repostage
+	 * @param repostaje
 	 */
-	public void update(RepostajeGasolinera repostage);
+	public void update(RepostajeGasolinera repostaje);
 	
 	/**
 	 * Método que elimina un repostage en base de datos.
-	 * @param repostage
+	 * @param repostaje
 	 */
-	public void delete(RepostajeGasolinera repostage);
+	public void delete(RepostajeGasolinera repostaje);
 	
 	
 }

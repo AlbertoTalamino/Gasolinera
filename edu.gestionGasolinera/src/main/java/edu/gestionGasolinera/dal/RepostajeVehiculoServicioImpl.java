@@ -3,6 +3,8 @@
  */
 package edu.gestionGasolinera.dal;
 
+import java.util.List;
+
 /**
  * @author Talamino
  *
@@ -12,5 +14,27 @@ package edu.gestionGasolinera.dal;
  * Con la etiqueta persistence context estamos iyectando un EntityManager.
  */
 public class RepostajeVehiculoServicioImpl implements RepostajeVehiculoServicio{
+
+	public List<RepostajeVehiculo> select() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void insert(RepostajeVehiculo repostaje) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(RepostajeVehiculo repostaje) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void delete(RepostajeVehiculo repostaje) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }

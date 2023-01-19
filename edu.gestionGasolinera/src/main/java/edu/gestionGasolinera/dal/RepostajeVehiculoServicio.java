@@ -22,20 +22,20 @@ public interface RepostajeVehiculoServicio {
 	
 	/**
 	 * Método que inserta un nuevo repostage en base de datos.
-	 * @param repostage
+	 * @param repostaje
 	 */
-	public void insert(RepostajeVehiculo repostage);
+	public void insert(RepostajeVehiculo repostaje);
 	
 	/**
 	 * Método que actualiza un repostage en base de datos.
-	 * @param repostage
+	 * @param repostaje
 	 */
-	public void update(RepostajeVehiculo repostage);
+	public void update(RepostajeVehiculo repostaje);
 	
 	/**
 	 * Método que elimina un repostage en base de datos.
-	 * @param repostage
+	 * @param repostaje
 	 */
-	public void delete(RepostajeVehiculo repostage);
+	public void delete(RepostajeVehiculo repostaje);
 	
 }
