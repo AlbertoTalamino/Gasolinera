@@ -44,34 +44,6 @@ public class TiposCombustible {
 	List<String> tipo_combustible;
 	
 
-	//Constructores
-	
-	/**
-	 * Constructor normal
-	 * @param md_uuid
-	 * @param md_fch
-	 * @param id_repostaje_gasolinera
-	 * @param litros_combustible
-	 * @param tipo_combustible
-	 */
-	public TiposCombustible(String md_uuid, Date md_fch, int id_repostaje_gasolinera, int litros_combustible,
-			List<String> tipo_combustible) {
-		super();
-		this.md_uuid = md_uuid;
-		this.md_fch = md_fch;
-		this.id_repostaje_gasolinera = id_repostaje_gasolinera;
-		this.litros_combustible = litros_combustible;
-		this.tipo_combustible = tipo_combustible;
-	}
-
-	/**
-	 * Constructor vacío
-	 */
-	public TiposCombustible() {
-		super();
-	}
-
-
 	//GETTERS AND SETTERS
 	public String getMd_uuid() {
 		return md_uuid;

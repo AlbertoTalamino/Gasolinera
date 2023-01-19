@@ -5,6 +5,13 @@ package edu.gestionGasolinera.dal;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+
+
 /**
  * @author Talamino
  *
@@ -13,26 +20,32 @@ import java.util.List;
  * IoC para hacer inyección de dependencias.
  * Con la etiqueta persistence context estamos iyectando un EntityManager.
  */
+
+@Repository
 public class RepostajeVehiculoServicioImpl implements RepostajeVehiculoServicio{
 
-	public List<RepostajeVehiculo> select() {
-		// TODO Auto-generated method stub
-		return null;
+	@PersistenceContext
+	private EntityManager em;
+	
+	public List<RepostajeVehiculo> select() throws Exception{
+		return em.createQuery("SELECT * FROM dlk_tch_RepostageVehiculo").getResultList();
 	}
 
-	public void insert(RepostajeVehiculo repostaje) {
+	public void insert(RepostajeVehiculo repostaje) throws Exception{
+		em.persist(repostaje);	
+		em.clear();
+		em.close();
+	}
+
+	public void update(RepostajeVehiculo repostaje) throws Exception{
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void update(RepostajeVehiculo repostaje) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void delete(RepostajeVehiculo repostaje) {
-		// TODO Auto-generated method stub
-		
+	public void delete(RepostajeVehiculo repostaje) throws Exception{
+		em.remove(repostaje);
+		em.clear();
+		em.close();
 	}
 
 	

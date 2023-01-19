@@ -50,43 +50,9 @@ public class RepostajeVehiculo {
 	
 	@ManyToOne
     @JoinColumn(name = "combustible_vehiculo_id")
-	@Column(name="tipo_combustible", nullable=false)
-	String tipo_combustible;
+	TiposCombustible tipo_combustible;
 	
-	//Constructores
-	
-	/**
-	 * Constructor normal
-	 * @param md_uuid
-	 * @param md_fch
-	 * @param id_repostage_vehiculo
-	 * @param fecha_hora
-	 * @param importe
-	 * @param DNI
-	 * @param matrícula
-	 * @param tipo_combustible
-	 */
-	public RepostajeVehiculo(String md_uuid, Date md_fch, int id_repostage_vehiculo, Date fecha_hora, float importe,
-			String DNI, String matrícula, String tipo_combustible) {
-		super();
-		this.md_uuid = md_uuid;
-		this.md_fch = md_fch;
-		this.id_repostage_vehiculo = id_repostage_vehiculo;
-		this.fecha_hora = fecha_hora;
-		this.importe = importe;
-		this.DNI = DNI;
-		this.matrícula = matrícula;
-		this.tipo_combustible = tipo_combustible;
-	}
 
-	/**
-	 * Constructor vacío
-	 */
-	public RepostajeVehiculo() {
-		super();
-	}
-
-	
 	//GETTERS AND SETTERS
 	public String getMd_uuid() {
 		return md_uuid;
@@ -144,21 +110,13 @@ public class RepostajeVehiculo {
 		this.matrícula = matrícula;
 	}
 	
-	public String getTipo_combustible() {
-		return matrícula;
-	}
-
-	public void setTipo_combustible(String matrícula) {
-		this.matrícula = matrícula;
-	}
-
 
 	//ToString (Metodo que hace legible a la clase)
 	@Override
 	public String toString() {
 		return "RepostajeVehiculo [md_uuid=" + md_uuid + ", md_fch=" + md_fch + ", id_repostage_vehiculo="
 				+ id_repostage_vehiculo + ", fecha_hora=" + fecha_hora + ", importe=" + importe + ", DNI=" + DNI
-				+ ", matrícula=" + matrícula + ", =tipo_combustible" + tipo_combustible +"]";
+				+ ", matrícula=" + matrícula +"]";
 	}
 
 }

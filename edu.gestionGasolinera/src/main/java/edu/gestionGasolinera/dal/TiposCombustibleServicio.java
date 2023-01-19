@@ -18,24 +18,24 @@ public interface TiposCombustibleServicio {
 	 * Método que trae todos los registros de la tabla dlk_tch_TiposCombustibles
 	 * @return List<TiposCombustible>
 	 */
-	public List<TiposCombustible> select();
+	public List<TiposCombustible> select() throws Exception;
 	
 	/**
 	 * Método que inserta un nuevo combustible en base de datos.
 	 * @param combustible
 	 */
-	public void insert(TiposCombustible combustible);
+	public void insert(TiposCombustible combustible) throws Exception;
 	
 	/**
 	 * Método que actualiza un combustible en base de datos.
 	 * @param combustible
 	 */
-	public void update(TiposCombustible combustible);
+	public void update(TiposCombustible combustible) throws Exception;
 	
 	/**
 	 * Método que elimina un combustible en base de datos.
 	 * @param combustible
 	 */
-	public void delete(TiposCombustible combustible);
+	public void delete(TiposCombustible combustible) throws Exception;
 	
 }

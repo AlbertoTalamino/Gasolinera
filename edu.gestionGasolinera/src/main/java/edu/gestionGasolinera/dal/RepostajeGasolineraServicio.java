@@ -18,25 +18,26 @@ public interface RepostajeGasolineraServicio {
 	 * Método que trae todos los registros de la tabla dlk_tch_RepostajeGasolinera
 	 * @return List<RepostajeGasolinera>
 	 */
-	public List<RepostajeGasolinera> select();
+	public List<RepostajeGasolinera> select() throws Exception;
 	
 	/**
 	 * Método que inserta un nuevo repostage en base de datos.
 	 * @param repostaje
+	 * @throws Exception 
 	 */
-	public void insert(RepostajeGasolinera repostaje);
+	public void insert(RepostajeGasolinera repostaje) throws Exception;
 	
 	/**
 	 * Método que actualiza un repostage en base de datos.
 	 * @param repostaje
 	 */
-	public void update(RepostajeGasolinera repostaje);
+	public void update(RepostajeGasolinera repostaje) throws Exception;
 	
 	/**
 	 * Método que elimina un repostage en base de datos.
 	 * @param repostaje
 	 */
-	public void delete(RepostajeGasolinera repostaje);
+	public void delete(RepostajeGasolinera repostaje) throws Exception;
 	
 	
 }
