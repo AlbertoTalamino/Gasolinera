@@ -32,7 +32,7 @@ public class RepostajeVehiculoServicioImpl implements RepostajeVehiculoServicio{
 	}
 
 	public void insert(RepostajeVehiculo repostaje) throws Exception{
-		em.persist(repostaje);	
+		em.merge(repostaje);	
 		em.clear();
 		em.close();
 	}

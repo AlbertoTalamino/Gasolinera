@@ -3,11 +3,15 @@
  */
 package edu.gestionGasolinera.controlador;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
+import edu.gestionGasolinera.dal.RepostajeVehiculo;
 import edu.gestionGasolinera.impl.Consultas;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -31,6 +35,10 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("contexto.xml");
 		// Añadimos a nuestra clase consulta el contexto
 		Consultas consulta = (Consultas) context.getBean(Consultas.class);
+		
+		Calendar fch_actual = Calendar.getInstance();
+		
+		consulta.repostajeVehículo(new RepostajeVehiculo(" ", fch_actual, 1, fch_actual, 3, " ", " ", " "  ));
 
 		/*
 		 * // Creamos el DTO dto.NotaEv evDTO = new dto.NotaEv("JUF··", 8, "PR");
@@ -53,7 +61,7 @@ public class App {
 			System.out.println("\t\t7) Ver todos los llenados de depósito");
 			System.out.println("\n\t\t0) Salir");
 
-			System.out.print("\n\tEscribe una de las opciones: ");
+			System.out.print("\n\t\tEscribe una de las opciones: ");
 			opcion = sn.nextInt();
 
 			switch (opcion) {
@@ -79,10 +87,10 @@ public class App {
 
 				break;
 			case 0:
-				System.out.println("Gracias por usar nuestra app");
+				System.out.println("\n\t\tGracias por usar nuestra app");
 				break;
 			default:
-				System.out.println("Solo números entre 0 y 7");
+				System.out.println("\n\t\tSolo números entre 0 y 7");
 			}
 
 		} while (opcion != 0);

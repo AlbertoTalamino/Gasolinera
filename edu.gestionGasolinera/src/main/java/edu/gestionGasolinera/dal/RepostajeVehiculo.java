@@ -3,10 +3,13 @@
  */
 package edu.gestionGasolinera.dal;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,7 +24,7 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-@Table(name="dlk_tch_RepostageVehiculo", schema="dlk_gasolinera")
+@Table(name="dlk_tch_RepostajeVehiculo", schema="dlk_gasolinera")
 public class RepostajeVehiculo {
 
 	//Propiedades
@@ -30,28 +33,47 @@ public class RepostajeVehiculo {
 	
 	@Column(name="md_fch", nullable=false)
 	@Temporal(TemporalType.DATE) 
-	Date md_fch;
-	@Id
+	Calendar md_fch;
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_repostage_vehiculo", nullable=false)
 	int id_repostage_vehiculo;
 	
 	@Column(name="fecha_hora", nullable=false)
 	@Temporal(TemporalType.DATE) 
-	Date fecha_hora;
+	Calendar fecha_hora;
 	
-	@Column(name="importe", nullable=false)
+	@Column(name="importe", nullable=false) 
 	float importe;
 	
-	@Column(name="DNI", nullable=false, columnDefinition="00000000A")
+	@Column(name="DNI", nullable=false)
 	String DNI;
 	
-	@Column(name="matrícula", nullable=false, columnDefinition="000AAA")
+	@Column(name="matrícula", nullable=false)
 	String matrícula;
 	
-	@ManyToOne
-    @JoinColumn(name = "combustible_vehiculo_id")
-	TiposCombustible tipo_combustible;
+	@Column(name="tipo_combustible", nullable=false)
+	String tipo_combustible_vehiculo;
 	
+	
+
+	public RepostajeVehiculo(String md_uuid, Calendar md_fch, int id_repostage_vehiculo, Calendar fecha_hora, float importe,
+			String dNI, String matrícula, String tipo_combustible_vehiculo) {
+		super();
+		this.md_uuid = md_uuid;
+		this.md_fch = md_fch;
+		this.id_repostage_vehiculo = id_repostage_vehiculo;
+		this.fecha_hora = fecha_hora;
+		this.importe = importe;
+		DNI = dNI;
+		this.matrícula = matrícula;
+		this.tipo_combustible_vehiculo = tipo_combustible_vehiculo;
+	}
+
+
+	public RepostajeVehiculo() {
+		super();
+	}
+
 
 	//GETTERS AND SETTERS
 	public String getMd_uuid() {
@@ -62,11 +84,11 @@ public class RepostajeVehiculo {
 		this.md_uuid = md_uuid;
 	}
 
-	public Date getMd_fch() {
+	public Calendar getMd_fch() {
 		return md_fch;
 	}
 
-	public void setMd_fch(Date md_fch) {
+	public void setMd_fch(Calendar md_fch) {
 		this.md_fch = md_fch;
 	}
 
@@ -78,11 +100,11 @@ public class RepostajeVehiculo {
 		this.id_repostage_vehiculo = id_repostage_vehiculo;
 	}
 
-	public Date getFecha_hora() {
+	public Calendar getFecha_hora() {
 		return fecha_hora;
 	}
 
-	public void setFecha_hora(Date fecha_hora) {
+	public void setFecha_hora(Calendar fecha_hora) {
 		this.fecha_hora = fecha_hora;
 	}
 
@@ -110,13 +132,5 @@ public class RepostajeVehiculo {
 		this.matrícula = matrícula;
 	}
 	
-
-	//ToString (Metodo que hace legible a la clase)
-	@Override
-	public String toString() {
-		return "RepostajeVehiculo [md_uuid=" + md_uuid + ", md_fch=" + md_fch + ", id_repostage_vehiculo="
-				+ id_repostage_vehiculo + ", fecha_hora=" + fecha_hora + ", importe=" + importe + ", DNI=" + DNI
-				+ ", matrícula=" + matrícula +"]";
-	}
 
 }

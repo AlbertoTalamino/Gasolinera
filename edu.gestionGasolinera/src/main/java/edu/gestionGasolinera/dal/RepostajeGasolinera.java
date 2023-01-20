@@ -3,10 +3,12 @@
  */
 package edu.gestionGasolinera.dal;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -31,18 +33,17 @@ public class RepostajeGasolinera {
 	
 	@Column(name="md_fch", nullable=false)
 	@Temporal(TemporalType.DATE) 
-	Date md_fch;
+	Calendar md_fch;
 	
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_repostaje_gasolinera", nullable=false)
 	int id_repostaje_gasolinera;
 	
 	@Column(name="litros_combustible", nullable=false)
 	int litros_combustible;
 	
-	@ManyToOne
-    @JoinColumn(name = "combustible_gasolinera_id")
-	TiposCombustible tipo_combustible;
+	@Column(name="tipo_combustible", nullable=false)
+	String tipo_combustible_gasolinera;
 
 
 	//GETTERS AND SETTERS
@@ -52,10 +53,10 @@ public class RepostajeGasolinera {
 	public void setMd_uuid(String md_uuid) {
 		this.md_uuid = md_uuid;
 	}
-	public Date getMd_fch() {
+	public Calendar getMd_fch() {
 		return md_fch;
 	}
-	public void setMd_fch(Date md_fch) {
+	public void setMd_fch(Calendar md_fch) {
 		this.md_fch = md_fch;
 	}
 	public int getId_repostage() {
@@ -72,12 +73,4 @@ public class RepostajeGasolinera {
 	}
 
 
-	//ToString (Metodo que hace legible a la clase)
-	@Override
-	public String toString() {
-		return "RepostageGasolinera [md_uuid=" + md_uuid + ", md_fch=" + md_fch + ", id_repostage=" + id_repostaje_gasolinera
-				+ ", litros_combustible=" + litros_combustible + "]";
-	}
-
-	
 }

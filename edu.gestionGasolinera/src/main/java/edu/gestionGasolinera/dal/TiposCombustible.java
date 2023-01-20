@@ -3,12 +3,16 @@
  */
 package edu.gestionGasolinera.dal;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -30,18 +34,22 @@ public class TiposCombustible {
 	
 	@Column(name = "md_fch", nullable = false)
 	@Temporal(TemporalType.DATE) 
-	Date md_fch;
+	Calendar md_fch;
 	
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_repostaje_gasolinera", nullable = false)
 	int id_repostaje_gasolinera;
 	
 	@Column(name = "litros_combustible", nullable = false)
 	int litros_combustible;
 	   
-	@Column(name = "tipo_combustible", nullable = false)
-	@OneToMany(mappedBy = "tipo_combustible")	 
-	List<String> tipo_combustible;
+	//@Column(name = "tipo_combustible", nullable = false)
+	@OneToMany()
+	List<RepostajeGasolinera> repostaje_gasolinera;
+	
+	@OneToMany() 
+	List<RepostajeVehiculo> repostaje_vehiculo;
+	
 	
 
 	//GETTERS AND SETTERS
@@ -51,10 +59,10 @@ public class TiposCombustible {
 	public void setMd_uuid(String md_uuid) {
 		this.md_uuid = md_uuid;
 	}
-	public Date getMd_fch() {
+	public Calendar getMd_fch() {
 		return md_fch;
 	}
-	public void setMd_fch(Date md_fch) {
+	public void setMd_fch(Calendar md_fch) {
 		this.md_fch = md_fch;
 	}
 	public int getId_repostaje_gasolinera() {
@@ -69,20 +77,7 @@ public class TiposCombustible {
 	public void setLitros_combustible(int litros_combustible) {
 		this.litros_combustible = litros_combustible;
 	}
-	public List<String> getTipo_combustible() {
-		return tipo_combustible;
-	}
-	public void setTipo_combustible(List<String> tipo_combustible) {
-		this.tipo_combustible = tipo_combustible;
-	}
 	
 	
-	//ToString (Metodo que hace legible a la clase)
-	@Override
-	public String toString() {
-		return "TiposCombustible [md_uuid=" + md_uuid + ", md_fch=" + md_fch + ", id_repostaje_gasolinera="
-				+ id_repostaje_gasolinera + ", litros_combustible=" + litros_combustible + ", tipo_combustible="
-				+ tipo_combustible + "]";
-	}
 	
 }
