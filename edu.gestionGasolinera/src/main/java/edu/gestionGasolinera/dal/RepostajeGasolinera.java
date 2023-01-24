@@ -65,11 +65,17 @@ public class RepostajeGasolinera {
 	public void setId_repostage(int id_repostage) {
 		this.id_repostaje_gasolinera = id_repostage;
 	}
-	public int getLitros() {
+	public int getLitros_combustible() {
 		return litros_combustible;
 	}
-	public void setLitros(int litros_combustible) {
+	public void setLitros_combustible(int litros_combustible) {
 		this.litros_combustible = litros_combustible;
+	}
+	public String getTipo_combustible_gasolinera() {
+		return tipo_combustible_gasolinera;
+	}
+	public void setTipo_combustible_gasolinera(String tipo_combustible_gasolinera) {
+		this.tipo_combustible_gasolinera = tipo_combustible_gasolinera;
 	}
 
 

@@ -131,6 +131,14 @@ public class RepostajeVehiculo {
 	public void setMatrícula(String matrícula) {
 		this.matrícula = matrícula;
 	}
+
+	public String getTipo_combustible_vehiculo() {
+		return tipo_combustible_vehiculo;
+	}
+
+	public void setTipo_combustible_vehiculo(String tipo_combustible_vehiculo) {
+		this.tipo_combustible_vehiculo = tipo_combustible_vehiculo;
+	}
 	
 
 }

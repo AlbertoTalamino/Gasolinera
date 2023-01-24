@@ -36,19 +36,14 @@ public class App {
 		// Añadimos a nuestra clase consulta el contexto
 		Consultas consulta = (Consultas) context.getBean(Consultas.class);
 		
+		//Metodo propio de la clase calendar con el cual obtenemos la fecha actual
 		Calendar fch_actual = Calendar.getInstance();
 		
+		//Insert de prueba para conprobar que nuestro modelo se translada correctamente a la BBDD
 		consulta.repostajeVehículo(new RepostajeVehiculo(" ", fch_actual, 1, fch_actual, 3, " ", " ", " "  ));
 
-		/*
-		 * // Creamos el DTO dto.NotaEv evDTO = new dto.NotaEv("JUF··", 8, "PR");
-		 * 
-		 * // Consulta y paso de DTO a DAO
-		 * consulta.insertarUnPedido(toDAO.DTONotaEvToDAO.convert(evDTO));
-		 * 
-		 * System.out.println(consulta.Evaluacion());
-		 */
-
+	
+		//Menu principal (Uso por consola aunque imitaría el funcionamiento que se haría por vistas)
 		int opcion;
 		do {
 			System.out.println("\n\t\t   MENU");

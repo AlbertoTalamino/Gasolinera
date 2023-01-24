@@ -3,7 +3,7 @@
  */
 package edu.gestionGasolinera.dtos;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import edu.gestionGasolinera.dal.RepostajeVehiculo;
@@ -18,13 +18,13 @@ public class VehiculoDTO {
 	
 	//Propiedades
 	String md_uuid;
-	Date md_fch;
+	Calendar md_fch;
 	int id_repostage_vehiculo;
-	Date fecha_hora;	
+	Calendar fecha_hora;	
 	float importe;	
 	String DNI;	
 	String matrícula;	
-	int tipo_combustible_vehiculo;
+	String tipo_combustible_vehiculo;
 	
 	/**
 	 * Construtor Normal
@@ -37,11 +37,11 @@ public class VehiculoDTO {
 	 * @param matrícula
 	 * @param tipo_combustible_vehiculo
 	 */
-	public VehiculoDTO(String md_uuid, Date md_fch, int id_repostage_vehiculo, Date fecha_hora, float importe,
-			String dNI, String matrícula, int tipo_combustible_vehiculo) {
+	public VehiculoDTO(int id_repostage_vehiculo, Calendar fecha_hora, float importe,
+			String dNI, String matrícula, String tipo_combustible_vehiculo) {
 		super();
-		this.md_uuid = md_uuid;
-		this.md_fch = md_fch;
+		this.md_uuid = RandomValue();
+		this.md_fch = Calendar.getInstance();
 		this.id_repostage_vehiculo = id_repostage_vehiculo;
 		this.fecha_hora = fecha_hora;
 		this.importe = importe;
@@ -69,11 +69,11 @@ public class VehiculoDTO {
 		this.md_uuid = md_uuid;
 	}
 
-	public Date getMd_fch() {
+	public Calendar getMd_fch() {
 		return md_fch;
 	}
 
-	public void setMd_fch(Date md_fch) {
+	public void setMd_fch(Calendar md_fch) {
 		this.md_fch = md_fch;
 	}
 
@@ -85,11 +85,11 @@ public class VehiculoDTO {
 		this.id_repostage_vehiculo = id_repostage_vehiculo;
 	}
 
-	public Date getFecha_hora() {
+	public Calendar getFecha_hora() {
 		return fecha_hora;
 	}
 
-	public void setFecha_hora(Date fecha_hora) {
+	public void setFecha_hora(Calendar fecha_hora) {
 		this.fecha_hora = fecha_hora;
 	}
 
@@ -117,11 +117,11 @@ public class VehiculoDTO {
 		this.matrícula = matrícula;
 	}
 
-	public int getTipo_combustible_vehiculo() {
+	public String getTipo_combustible_vehiculo() {
 		return tipo_combustible_vehiculo;
 	}
 
-	public void setTipo_combustible_vehiculo(int tipo_combustible_vehiculo) {
+	public void setTipo_combustible_vehiculo(String tipo_combustible_vehiculo) {
 		this.tipo_combustible_vehiculo = tipo_combustible_vehiculo;
 	}
 
@@ -133,5 +133,11 @@ public class VehiculoDTO {
 				+ ", matrícula=" + matrícula + ", tipo_combustible_vehiculo=" + tipo_combustible_vehiculo + "]";
 	}
 
+	//Método que genera un valor aleatorio para el campo MdUuid       
+    String RandomValue()
+    {
+    	int random = (int)Math.floor(Math.random()*10+1);
+        return ("AS" + random);
+    }
 	
 }
