@@ -28,7 +28,7 @@ public class RepostajeVehiculoServicioImpl implements RepostajeVehiculoServicio{
 	private EntityManager em;
 	
 	public List<RepostajeVehiculo> select() throws Exception{
-		return em.createQuery("SELECT * FROM dlk_tch_RepostageVehiculo").getResultList();
+		return em.createQuery("SELECT repostajeVehiculo FROM RepostajeVehiculo repostajeVehiculo").getResultList();
 	}
 
 	public void insert(RepostajeVehiculo repostaje) throws Exception{
@@ -43,7 +43,7 @@ public class RepostajeVehiculoServicioImpl implements RepostajeVehiculoServicio{
 	}
 
 	public void delete(RepostajeVehiculo repostaje) throws Exception{
-		em.remove(repostaje);
+		em.remove(em.contains(repostaje) ? repostaje : em.merge(repostaje));
 		em.clear();
 		em.close();
 	}

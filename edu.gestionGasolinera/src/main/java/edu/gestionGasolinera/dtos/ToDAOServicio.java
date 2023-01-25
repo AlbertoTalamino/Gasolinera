@@ -26,4 +26,6 @@ public interface ToDAOServicio {
 	 */
 	public RepostajeVehiculo VehiculoToDAO(VehiculoDTO vehiculoDTO);
 	
+	
+	
 }

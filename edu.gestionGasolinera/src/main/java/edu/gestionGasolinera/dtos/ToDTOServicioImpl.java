@@ -3,6 +3,12 @@
  */
 package edu.gestionGasolinera.dtos;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import edu.gestionGasolinera.dal.RepostajeGasolinera;
 import edu.gestionGasolinera.dal.RepostajeVehiculo;
 
@@ -10,6 +16,8 @@ import edu.gestionGasolinera.dal.RepostajeVehiculo;
  * @author Talamino
  * Implementación de la interfaz ToDTOServicio
  */
+
+@Service
 public class ToDTOServicioImpl implements ToDTOServicio{
 
 	@Override
@@ -39,6 +47,18 @@ public class ToDTOServicioImpl implements ToDTOServicio{
 		vehiculoDTO.setTipo_combustible_vehiculo(repostajeVehiculo.getTipo_combustible_vehiculo());
 		
 		return vehiculoDTO;
+	}
+
+	@Override
+	public List<GasolineraDTO> ListGasolineraToDTO(List<RepostajeGasolinera> listRepostajeGasolinera) {
+		
+		List<GasolineraDTO> gasolineraDTO = new ArrayList<GasolineraDTO>();
+		
+		for (int i = 0; i < listRepostajeGasolinera.size(); i++) {
+			//gasolineraDTO.add((GasolineraDTO)listRepostajeGasolinera.get(i)); -> no se como igular las dos listas
+		}
+		
+		return gasolineraDTO;
 	}
 
 }

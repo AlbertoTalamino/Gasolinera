@@ -27,29 +27,36 @@ public class VehiculoDTO {
 	String tipo_combustible_vehiculo;
 	
 	/**
-	 * Construtor Normal
-	 * @param md_uuid
-	 * @param md_fch
-	 * @param id_repostage_vehiculo
-	 * @param fecha_hora
+	 * Construtor Normal (Con Factura)
 	 * @param importe
 	 * @param dNI
 	 * @param matrícula
 	 * @param tipo_combustible_vehiculo
 	 */
-	public VehiculoDTO(int id_repostage_vehiculo, Calendar fecha_hora, float importe,
-			String dNI, String matrícula, String tipo_combustible_vehiculo) {
+	public VehiculoDTO(float importe, String dNI, String matrícula, String tipo_combustible_vehiculo) {
 		super();
 		this.md_uuid = RandomValue();
 		this.md_fch = Calendar.getInstance();
-		this.id_repostage_vehiculo = id_repostage_vehiculo;
-		this.fecha_hora = fecha_hora;
+		this.fecha_hora = Calendar.getInstance();;
 		this.importe = importe;
 		DNI = dNI;
 		this.matrícula = matrícula;
 		this.tipo_combustible_vehiculo = tipo_combustible_vehiculo;
 	}
 	
+	/**
+	 * Construtor Normal (Sin Factura)
+	 * @param importe
+	 * @param tipo_combustible_vehiculo
+	 */
+	public VehiculoDTO(float importe, String tipo_combustible_vehiculo) {
+		super();
+		this.md_uuid = RandomValue();
+		this.md_fch = Calendar.getInstance();
+		this.fecha_hora = Calendar.getInstance();;
+		this.importe = importe;
+		this.tipo_combustible_vehiculo = tipo_combustible_vehiculo;
+	}
 	
 	/**
 	 * Construtor Vacío

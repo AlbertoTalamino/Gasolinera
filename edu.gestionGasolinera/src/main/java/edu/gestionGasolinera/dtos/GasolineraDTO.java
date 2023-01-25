@@ -34,12 +34,10 @@ public class GasolineraDTO {
 	 * @param litros_combustible
 	 * @param tipo_combustible_gasolinera
 	 */
-	public GasolineraDTO(int id_repostaje_gasolinera, int litros_combustible,
-			String tipo_combustible_gasolinera) {
+	public GasolineraDTO(int litros_combustible, String tipo_combustible_gasolinera) {
 		super();
 		this.md_uuid = RandomValue();
 		this.md_fch = Calendar.getInstance();;
-		this.id_repostaje_gasolinera = id_repostaje_gasolinera;
 		this.litros_combustible = litros_combustible;
 		this.tipo_combustible_gasolinera = tipo_combustible_gasolinera;
 	}

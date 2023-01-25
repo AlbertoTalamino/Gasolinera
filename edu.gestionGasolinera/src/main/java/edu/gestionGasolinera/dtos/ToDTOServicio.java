@@ -3,6 +3,8 @@
  */
 package edu.gestionGasolinera.dtos;
 
+import java.util.List;
+
 import edu.gestionGasolinera.dal.RepostajeGasolinera;
 import edu.gestionGasolinera.dal.RepostajeVehiculo;
 
@@ -26,4 +28,12 @@ public interface ToDTOServicio {
 	 * @return
 	 */
 	public VehiculoDTO RepostajeVehiculoToDTO(RepostajeVehiculo repostajeVehiculo);
+	
+	
+	/*
+	 * Paso de una lista DAO a DTO
+	 * @param listRepostajeGasolinera
+	 * @return List<GasolineraDTO>
+	 */
+	public List<GasolineraDTO> ListGasolineraToDTO(List<RepostajeGasolinera> listRepostajeGasolinera);
 }

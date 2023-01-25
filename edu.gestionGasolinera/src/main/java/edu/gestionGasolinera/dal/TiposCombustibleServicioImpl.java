@@ -43,7 +43,7 @@ public class TiposCombustibleServicioImpl implements TiposCombustibleServicio{
 	}
 
 	public void delete(TiposCombustible combustible) throws Exception{
-		em.remove(combustible);
+		em.remove(em.contains(combustible) ? combustible : em.merge(combustible));
 		em.clear();
 		em.close();
 	}

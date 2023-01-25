@@ -3,6 +3,8 @@
  */
 package edu.gestionGasolinera.dtos;
 
+import org.springframework.stereotype.Service;
+
 import edu.gestionGasolinera.dal.RepostajeGasolinera;
 import edu.gestionGasolinera.dal.RepostajeVehiculo;
 
@@ -10,6 +12,8 @@ import edu.gestionGasolinera.dal.RepostajeVehiculo;
  * @author Talamino
  * Implementación de la interfaz ToDAOServicio
  */
+
+@Service
 public class ToDAOServicioImpl implements ToDAOServicio{
 
 	@Override

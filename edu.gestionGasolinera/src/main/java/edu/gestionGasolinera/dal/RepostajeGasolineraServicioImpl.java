@@ -28,7 +28,7 @@ public class RepostajeGasolineraServicioImpl implements RepostajeGasolineraServi
 	private EntityManager em;
 	
 	public List<RepostajeGasolinera> select() throws Exception{
-		return em.createQuery("SELECT * FROM dlk_tch_RepostajeGasolinera").getResultList();
+		return em.createQuery("SELECT repostajeGasolinera FROM RepostajeGasolinera repostajeGasolinera").getResultList();
 	}
 
 	public void insert(RepostajeGasolinera repostaje) throws Exception{
@@ -43,7 +43,7 @@ public class RepostajeGasolineraServicioImpl implements RepostajeGasolineraServi
 	}
 
 	public void delete(RepostajeGasolinera repostaje) throws Exception{
-		em.remove(repostaje);
+		em.remove(em.contains(repostaje) ? repostaje : em.merge(repostaje));
 		em.clear();
 		em.close();	
 	}

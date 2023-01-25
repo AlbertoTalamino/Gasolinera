@@ -20,7 +20,7 @@ import edu.gestionGasolinera.dal.TiposCombustibleServicioImpl;
  */
 
 @Service
-public class Consultas {
+public class ConsultasServicioImpl implements ConsultasServicio{
 
 	// Repostage Gasolinera
 
@@ -32,6 +32,7 @@ public class Consultas {
 		
 		try {
 			psi1.insert(rg);
+			System.out.println("Registro guardado correctamente");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,6 +54,7 @@ public class Consultas {
 	public void eliminarRepostajeGasolinera(RepostajeGasolinera rg) {
 		try {
 			psi1.delete(rg);
+			System.out.println("Registro eliminado correctamente");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,6 +70,7 @@ public class Consultas {
 	public void repostajeVehículo(RepostajeVehiculo rv) {
 		try {
 			psi2.insert(rv);
+			System.out.println("Registro guardado correctamente");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,6 +82,7 @@ public class Consultas {
 		
 		try {
 			return psi2.select();
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,6 +95,7 @@ public class Consultas {
 	public void eliminarRepostajeVehículo(RepostajeVehiculo rv) {
 		try {
 			psi2.delete(rv);
+			System.out.println("Registro eliminado correctamente");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
