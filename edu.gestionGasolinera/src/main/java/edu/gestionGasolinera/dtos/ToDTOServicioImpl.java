@@ -17,7 +17,6 @@ import edu.gestionGasolinera.dal.RepostajeVehiculo;
  * Implementación de la interfaz ToDTOServicio
  */
 
-@Service
 public class ToDTOServicioImpl implements ToDTOServicio{
 
 	@Override

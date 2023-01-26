@@ -3,33 +3,27 @@
  */
 package edu.gestionGasolinera.controlador;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
 import edu.gestionGasolinera.dal.RepostajeGasolinera;
-import edu.gestionGasolinera.dal.RepostajeVehiculo;
 import edu.gestionGasolinera.dtos.GasolineraDTO;
+import edu.gestionGasolinera.dtos.ToDAOServicio;
 import edu.gestionGasolinera.dtos.ToDAOServicioImpl;
+import edu.gestionGasolinera.dtos.ToDTOServicio;
 import edu.gestionGasolinera.dtos.ToDTOServicioImpl;
 import edu.gestionGasolinera.dtos.VehiculoDTO;
 import edu.gestionGasolinera.impl.ConsultasServicio;
-import edu.gestionGasolinera.impl.ConsultasServicioImpl;
+
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author Talamino Clase que contiene la administracion de nuestra app
  * 
- * Dudas:
- * 1. Xq se añade la clase ConsultasServicio en vez de ConsultasServicioImpl al contexto?
- * 2. Fallo en insert (No entiendo el error que me da)
- * 3. Pasar una lista de objetos DAO a una lista de Objetos DTO (Casting)
- * 4. Delete va de lujo pero ni yo se como funciona
  */
 
 @Controller
@@ -38,21 +32,18 @@ public class App {
 	//Declaramos el escaner que imitara el funcionamiento de un input
 	private static Scanner sn = new Scanner(System.in);
 
-	
-	//Se instancian los métodos de conversión de DAOs <-> DTOs
-	
-	@Autowired
-	private static ToDAOServicioImpl ToDAO;
-	
-	@Autowired
-	private static ToDTOServicioImpl ToDTO;
-
-	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		//Se instancian los métodos de conversión de DAOs <-> DTOs
+		
+		ToDAOServicio ToDAO = new ToDAOServicioImpl();
+		
+		ToDTOServicio ToDTO = new ToDTOServicioImpl();
+		
 		
 		// Obtenemos el contexto
 		ApplicationContext context = new ClassPathXmlApplicationContext("contexto.xml");

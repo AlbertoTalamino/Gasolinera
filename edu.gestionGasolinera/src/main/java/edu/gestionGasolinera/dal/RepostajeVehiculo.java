@@ -45,10 +45,10 @@ public class RepostajeVehiculo {
 	@Column(name="importe", nullable=false) 
 	float importe;
 	
-	@Column(name="DNI", nullable=false)
+	@Column(name="DNI", nullable=true)
 	String DNI;
 	
-	@Column(name="matrícula", nullable=false)
+	@Column(name="matrícula", nullable=true)
 	String matrícula;
 	
 	@Column(name="tipo_combustible", nullable=false)
